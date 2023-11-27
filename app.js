@@ -8,6 +8,10 @@ const PORT = 3000
 
 // middleware
 app.use(express.json())
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+});
 
 // routes
 app.use('/api/v1/tasks', tasks)
